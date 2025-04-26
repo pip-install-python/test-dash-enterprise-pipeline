@@ -1,7 +1,7 @@
 from dash import *
 import dash_leaflet as dl
 
-# Initialize the Dash framework
+# Initialize the Dash app
 app = Dash(__name__, external_stylesheets=["https://use.fontawesome.com/releases/v6.2.1/css/all.css"])
 server = app.server
 
