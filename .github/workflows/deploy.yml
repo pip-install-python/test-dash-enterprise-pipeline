@@ -21,6 +21,7 @@ jobs:
           DE_USERNAME: ${{ secrets.DE_USERNAME }}
           DE_PASSWORD: ${{ secrets.DE_PASSWORD }}
           GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          de_client_version: '1.9.0'
           # Optional Inputs (uncomment and modify if needed):
           # app_name: 'my-osrs-map-app' # Defaults to repo name if not set
           # app_directory: '.' # Defaults to root, change if app is in subfolder
@@ -29,7 +30,7 @@ jobs:
           # create_redis: false # Set to true if your app needs Redis
           # create_postgres: false # Set to true if your app needs a Postgres DB
           # create_persistent_filesystem: false # Set to true if your app needs persistent storage
-          # de_client_version: 'X.Y.Z' # Specify a de-client version if needed
+
 
 
 
