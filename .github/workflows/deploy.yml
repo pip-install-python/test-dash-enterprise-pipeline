@@ -1,0 +1,37 @@
+name: 'Dash Enterprise Deploy'
+
+on:
+  push:
+    branches: [main] # Trigger deployment on push to the main branch
+  pull_request:
+    types: ['opened', 'edited', 'synchronize', 'closed'] # Trigger preview deployments/cleanup on PR events
+
+jobs:
+  deploy:
+    name: 'Deploy to Dash Enterprise'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3 # Use a specific version like v3 or v4
+
+      - name: Deploy using de-deploy action
+        uses: plotly/de-deploy@v4 # Pin to a specific major version (e.g., v4) or main for the latest
+        with:
+          DE_HOST: ${{ secrets.DE_HOST }}
+          DE_USERNAME: ${{ secrets.DE_USERNAME }}
+          DE_PASSWORD: ${{ secrets.DE_PASSWORD }}
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          # Optional Inputs (uncomment and modify if needed):
+          # app_name: 'my-osrs-map-app' # Defaults to repo name if not set
+          # app_directory: '.' # Defaults to root, change if app is in subfolder
+          # group_viewers: 'data-science-team,all-users' # Comma-separated list of viewer groups
+          # group_co_owners: 'app-admins' # Comma-separated list of co-owner groups
+          # create_redis: false # Set to true if your app needs Redis
+          # create_postgres: false # Set to true if your app needs a Postgres DB
+          # create_persistent_filesystem: false # Set to true if your app needs persistent storage
+          # de_client_version: 'X.Y.Z' # Specify a de-client version if needed
+
+
+
+
+
